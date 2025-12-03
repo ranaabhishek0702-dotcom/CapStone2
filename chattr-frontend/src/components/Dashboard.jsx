@@ -28,10 +28,10 @@ export default function Dashboard() {
     setSelectedChannel("general"); // default selection
   }, [navigate]);
 
-  const handleJoinChannel = () => {
-    if (selectedChannel) {
-      navigate(`/chat/${selectedChannel}`);
-    }
+  const handleChannelSelect = (channelId) => {
+    setSelectedChannel(channelId);
+    // Navigate directly to chat room
+    navigate(`/chat/${channelId}`);
   };
 
   const handleLogout = () => {
@@ -72,7 +72,7 @@ export default function Dashboard() {
                   className={`channel-card ${
                     selectedChannel === channel.id ? "selected" : ""
                   }`}
-                  onClick={() => setSelectedChannel(channel.id)}
+                  onClick={() => handleChannelSelect(channel.id)}
                 >
                   <div className="channel-icon">{channel.icon}</div>
                   <div className="channel-name">{channel.name}</div>
@@ -80,17 +80,6 @@ export default function Dashboard() {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Join Button */}
-          <div className="dashboard-footer">
-            <button
-              className="join-button"
-              onClick={handleJoinChannel}
-              disabled={!selectedChannel}
-            >
-              Join #{selectedChannel}
-            </button>
           </div>
         </div>
       </div>

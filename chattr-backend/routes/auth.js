@@ -29,7 +29,7 @@ router.post("/signup", async (req, res) => {
       return res.status(400).json({ message: "Invalid email" });
 
     // check by username or email
-    const userExists = await User.findOne({ $or: [{ username }, { email: email.toLowerCase() }] });
+    const userExists = await User.findOne({ $or: [{username}, { email: email.toLowerCase() }] });
 
     if (userExists) {
       return res.status(400).json({ message: "Username or email already taken" });
@@ -39,8 +39,9 @@ router.post("/signup", async (req, res) => {
 
     return res.json({
       message: "Signup successful",
-      token: generateToken(newUser),
-      user: { username: newUser.username, id: newUser._id, email: newUser.email, emailVerified: newUser.emailVerified }
+        token: generateToken(newUser),
+        username: newUser.username,
+        user: { username: newUser.username, id: newUser._id, email: newUser.email, emailVerified: newUser.emailVerified }
     });
 
   } catch (err) {
@@ -57,16 +58,20 @@ router.post("/signin", async (req, res) => {
     if (!identifier || !password)
       return res.status(400).json({ message: "Identifier and password required" });
 
+    console.log(`Signin attempt for identifier=${identifier}`);
     const query = (identifier.includes("@"))
       ? { email: identifier.toLowerCase() }
       : { username: identifier };
 
     const user = await User.findOne(query);
+    if (!user) console.log(`Signin: no user found for ${identifier}`);
+    else console.log(`Signin: found user ${user.username}`);
 
     if (!user)
       return res.status(400).json({ message: "Invalid credentials" });
 
     const isMatch = await user.matchPassword(password);
+    console.log(`Signin: password match = ${isMatch}`);
 
     if (!isMatch)
       return res.status(400).json({ message: "Invalid credentials" });
@@ -74,6 +79,7 @@ router.post("/signin", async (req, res) => {
     return res.json({
       message: "Signin successful",
       token: generateToken(user),
+      username: user.username,
       user: { username: user.username, id: user._id, email: user.email, emailVerified: user.emailVerified }
     });
 

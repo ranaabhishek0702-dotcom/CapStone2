@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
 
 // Create axios instance
 const api = axios.create({
@@ -30,12 +30,12 @@ export const authAPI = {
     const response = await api.post('/auth/signup', userData);
     return response.data;
   },
-  
+
   login: async (credentials) => {
-    const response = await api.post('/auth/login', credentials);
+    const response = await api.post('/auth/signin', credentials);
     return response.data;
   },
-  
+
   getMe: async () => {
     const response = await api.get('/auth/me');
     return response.data;

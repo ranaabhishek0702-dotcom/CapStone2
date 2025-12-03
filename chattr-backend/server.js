@@ -14,7 +14,7 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // ------------------------
