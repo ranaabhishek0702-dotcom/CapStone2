@@ -41,9 +41,8 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="App">
-      <div className="app-container">
-        <div className="dashboard-container">
+    <div className="dashboard-page">
+      <div className="dashboard-container">
           {/* Header */}
           <div className="dashboard-header">
             <div className="dashboard-title">
@@ -81,7 +80,6 @@ export default function Dashboard() {
               ))}
             </div>
           </div>
-        </div>
       </div>
     </div>
   );

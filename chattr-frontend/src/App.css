@@ -19,6 +19,17 @@ body {
   padding: 20px;
 }
 
+/* Full-screen dashboard page wrapper */
+.dashboard-page {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background: linear-gradient(180deg, #071020 0%, #0b2447 60%);
+  padding: 0; /* keep dashboard flush to viewport */
+}
+
 /* Chat Room Container */
 .app-container {
   display: flex;
@@ -378,17 +389,17 @@ body {
 /* Dashboard Styles */
 .dashboard-container {
   width: 100%;
-  max-width: 900px;
-  padding: 40px;
+  height: 100vh; /* occupy full viewport height */
+  padding: 48px;
   background: linear-gradient(135deg, #0f1a3f 0%, #1a2d5c 50%, #0d1a3a 100%);
-  border-radius: 12px;
-  min-height: 500px;
+  border-radius: 0; /* flush with viewport edges */
   display: flex;
   flex-direction: column;
   gap: 30px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  backdrop-filter: blur(6px);
+  border: none;
+  box-sizing: border-box;
 }
 
 .dashboard-header {

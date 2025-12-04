@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 
-const JWT_SECRET = process.env.JWT_SECRET || 'change_this_secret';
+const JWT_SECRET = process.env.JWT_SECRET || 'xyz';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d';
 
 
