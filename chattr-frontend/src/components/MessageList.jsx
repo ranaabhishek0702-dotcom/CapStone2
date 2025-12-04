@@ -10,6 +10,7 @@ export default function MessageList({ messages }) {
   }, [messages]);
 
   const username = localStorage.getItem("username");
+  const uname = username ? username.toString().toLowerCase() : "";
 
   return (
     <div className="messages-container" ref={ref}>
@@ -24,12 +25,13 @@ export default function MessageList({ messages }) {
       ) : (
         messages.map((m, i) => {
           const messageKey = `${m.sender}-${m.time || i}-${i}`;
-          const isOwn = m.sender === username;
+          const senderName = m.sender ? m.sender.toString().toLowerCase() : "";
+          const isOwn = senderName === uname;
           
           return (
             <div 
               key={messageKey} 
-              className={`message ${isOwn ? 'sent' : 'received'}`}
+              className={`message ${isOwn ? 'sent' : 'received'} ${m.__temp ? 'pending' : ''}`}
             >
               <div className="message-content">
                 <div className="message-meta">

@@ -96,6 +96,7 @@ export default function ChatRoom() {
       sender: username,
       message: msg,
       room: room,
+      time: tempMessage.time, // send the optimistic timestamp so server and client match
     });
   }, [isConnected, room]);
 
