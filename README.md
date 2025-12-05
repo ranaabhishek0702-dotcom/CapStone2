@@ -16,42 +16,8 @@ Chattr is a full-stack chat application that enables users to communicate in rea
 - **Axios** - HTTP client for API requests
 - **Tailwind CSS** - Utility-first CSS framework
 
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express** - Web application framework
-- **MongoDB** - NoSQL database
-- **Mongoose** - MongoDB object modeling
-- **Socket.IO** - Real-time communication
-- **JWT** - Token-based authentication
-- **bcrypt** - Password hashing
 
-## Project Structure
 
-```
-Chattr/
-├── chattr-backend/          # Backend server
-│   ├── config/              # Configuration files
-│   ├── controllers/         # Route controllers
-│   ├── middleware/          # Custom middleware
-│   ├── models/              # Database models
-│   ├── routes/              # API routes
-│   ├── server.js            # Server entry point
-│   └── package.json         # Backend dependencies
-│
-├── src/                     # Frontend source code
-│   ├── components/          # React components
-│   │   ├── Dashboard.jsx   # Main chat interface
-│   │   ├── Login.jsx       # Login page
-│   │   └── Signup.jsx      # Signup page
-│   ├── context/            # React context providers
-│   ├── services/           # API services
-│   ├── App.jsx             # Main App component
-│   └── main.jsx            # Application entry point
-│
-├── public/                  # Static assets
-├── dist/                    # Production build output
-└── package.json            # Frontend dependencies
-```
 
 ## Features
 
@@ -121,16 +87,7 @@ Chattr/
    ```
    The app will run on `http://localhost:3000`
 
-## Available Scripts
 
-### Frontend
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-
-### Backend
-- `npm start` - Start the server
-- `npm run dev` - Start with nodemon (auto-restart)
 
 ## API Endpoints
 
@@ -138,6 +95,6 @@ Chattr/
 - `POST /api/auth/login` - Authenticate user
 - Real-time messaging via Socket.IO
 
-## License
+
 
 This project is part of a capstone project.
